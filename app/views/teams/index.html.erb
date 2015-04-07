@@ -1,0 +1,12 @@
+<% provide(:title, 'All Teams') %>
+<h1>All Teams</h1>
+
+<ul class="users">
+  <% @teams.each do |team| %>
+    <li>
+      <%= link_to team.name, team %>
+      <% @f_team = team %>
+      <%= render 'follow_form'%>
+    </li>
+  <% end %>
+</ul>

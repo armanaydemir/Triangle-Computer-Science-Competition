@@ -1,0 +1,14 @@
+<% provide(:title, "Add Question to Valid Database") %>
+<% @options = [] %>
+<% for t in @optionMakers %>
+    <% @options.append([t.name, t.id]) %>
+<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+       <%= form_for(:add_db, url: add_db_path) do |f| %>
+            <%= select_tag(:db_id, options_for_select(@options)) %>
+           
+            <%= f.submit "Add", class: "btn btn-primary" %>
+        <% end %>
+  </div>
+</div>

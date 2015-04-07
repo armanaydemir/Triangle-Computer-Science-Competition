@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "TCSC", '#', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav pull-right">
+        <% if session[:user_id] %>
+            <li><%= link_to User.find(session[:user_id]).name, user_path(User.find(session[:user_id])) %></li>
+        <% end %>
+        <li><a href="http://www.tcsc.da.org">About</a></li>
+        <li><a href="mailto:16aydemir@da.org">Contact Us</a></li>
+        <% if session[:user_id] %>
+            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

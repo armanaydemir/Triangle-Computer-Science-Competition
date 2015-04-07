@@ -1,0 +1,36 @@
+<% provide(:title, "Edit Question") %>
+<h1>Update Question</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@question) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, :cols => "10", :rows => "10", class: 'form-control' %>
+
+      <%= f.label :category %>
+      <%= f.select :category, options_for_select(["Algorithm", "Cryptography", "Research/Reconassaince", "Reverse Engineering"]) %>
+      
+      <%= f.label :difficulty, "Difficulty from 1-10" %>
+      <%= f.text_field :difficulty, class: 'form-control'%>
+      
+      <%= f.label :contributor, "Your Name" %>
+      <%= f.text_field :contributor, class: 'form-control'%>
+
+      <%= f.label :answer, "Answer" %>
+      <%= f.text_field :answer, class: 'form-control'%>
+      
+      <%= f.label :round_id %>
+      <%= f.text_field :round_id, class: 'form-control'%>
+      
+      <%= f.label :num_points, "Number of Points" %>
+      <%= f.text_field :num_points, class: 'form-control'%>
+      
+      
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+ </div>
+</div>

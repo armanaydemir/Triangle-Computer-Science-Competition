@@ -1,0 +1,19 @@
+<% provide(:title, "Join Team") %>
+<h1>Join a Team</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:joiner, url: join_path) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Join", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>Want to make your own Team? <%= link_to "Create it Now!", create_path %></p>
+  </div>
+</div>

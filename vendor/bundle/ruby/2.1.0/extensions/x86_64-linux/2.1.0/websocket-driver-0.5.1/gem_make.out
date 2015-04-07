@@ -1,0 +1,12 @@
+/usr/local/rvm/rubies/ruby-2.1.4/bin/ruby -r ./siteconf20150127-21622-1e06vnm.rb extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20150127-21622-1kjg85w
+installing default websocket_mask libraries

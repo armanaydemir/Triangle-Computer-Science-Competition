@@ -1,0 +1,13 @@
+<style>
+.btn-block {
+    font-size: 24px;
+    
+}
+</style>
+
+<% provide(:title, 'Choose how to register') %>
+<h1>Would you like to join a registered team or start your own team?</h1>
+
+<%= link_to "Create my own team!", newUser_path, class: "btn btn-block btn-primary" %>
+<h1></h1>
+<%= link_to "Join a team!", join_path, class: "btn btn-block btn-primary" %>

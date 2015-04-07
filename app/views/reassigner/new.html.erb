@@ -1,0 +1,15 @@
+<% provide(:title, "Reassign Team Leader") %>
+<% @options = [] %>
+<% for t in @team_mates %>
+    <% @options.append([User.find(t.user_id).name, t.user_id]) unless User.find(t.user_id).name == @user.name %>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+       <%= form_for(:reassigner, url: reassign_path) do |f| %>
+            <%= select_tag(:change_id, options_for_select(@options)) %>
+           
+            <%= f.submit "Reassign", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "TCSC", root_url, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="http://www.tcsc.da.org">About</a></li>
+        <li><a href="mailto:16aydemir@da.org">Contact Us</a></li>
+        <% @team_member = TeamMember.find_by(user_id: @user.id) %>
+        <% if @team_member == nil %>
+            <li><%= link_to "Join a Team", join_path %></li>
+            <li><%= link_to "Create a Team", create_path %></li>
+        <% elsif @team_member.leader %>
+            <li><%= link_to "Team Settings", edit_team_path(Team.find(@team_member.team_id)) %></li>
+        <% end %>
+        <li><%= link_to "User Settings", edit_user_path(@user) %></li>
+        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

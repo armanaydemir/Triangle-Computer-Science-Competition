@@ -1,0 +1,29 @@
+<% provide(:title, 'Submit Questions') %>
+<h1>Question Sumbission</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@problem) do |f| %>
+      
+      <%= f.label :name, "Title" %>
+      <span>        ¡Exact Explanations Here!</span>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, :cols => "10", :rows => "10", class: 'form-control'%>
+      
+      <%= f.label :category%>
+      <%= f.select :category, options_for_select(["Algorithm", "Cryptography", "Research/Reconassaince", "Reverse Engineering"]) %>
+      
+      <%= f.label :difficulty, "Difficulty from 1-10" %>
+      <%= f.text_field :difficulty, class: 'form-control'%>
+      
+      <%= f.label :contributor, "Your Name" %>
+      <%= f.text_field :contributor, class: 'form-control'%>
+      
+      
+
+      <%= f.submit "Submit Question", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<% unless current_team == (@f_team) %>
+  <div id="follow_form">
+  <% if Relationship.find_by(followed_id: @f_team.id, follower_id: current_team.id) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+<% end %>

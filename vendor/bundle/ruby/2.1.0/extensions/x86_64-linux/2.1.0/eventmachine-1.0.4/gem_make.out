@@ -1,0 +1,13 @@
+/usr/local/rvm/rubies/ruby-2.1.4/bin/ruby -r ./siteconf20150127-18694-1pdyvde.rb extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20150127-18694-wig5vh
+installing default fastfilereaderext libraries

@@ -1,0 +1,32 @@
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+    
+    </div>
+  <% @team_member = TeamMember.find_by(user_id: @user.id) %>
+  <% if @team_member %>
+    <%= link_to "Leave", @team_member, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% else %>
+    <%= link_to "Delete", @user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</div>

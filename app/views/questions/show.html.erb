@@ -1,0 +1,31 @@
+<% provide(:title, @question.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+       <h1>
+        <%= @question.id %>
+      </h1>
+      <h1>
+        <%= @question.name %>
+      </h1>
+      <h1>
+        <%= @question.contributor %>
+      </h1>
+      <h1>
+        <%= @question.description %>
+      </h1>
+      <h1>
+        <%= @question.difficulty %>
+      </h1>
+      
+      
+    <%= form_tag(answerer_path, method: "post") do %>
+      <%= label_tag(:submission) %>
+      <%= text_field_tag(:submission) %>
+      <%= hidden_field_tag(:id_q, @question.id) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
+    </section>
+  </aside>
+</div>

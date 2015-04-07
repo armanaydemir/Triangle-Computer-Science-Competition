@@ -1,0 +1,36 @@
+<!-- Here is where we find whether or not the person is on a team or not and all that so that it doesnt mess up -->
+<% @team_member = TeamMember.find_by(user_id: @user.id) %>
+<% if @team_member %>
+  <% @team = Team.find(@team_member.team_id) %>
+  <% @team_mates = TeamMember.where(team_id: @team.id) %>
+<% end %>
+  
+
+
+
+<% provide(:title, @user.name) %>
+<%= render 'layouts/user_header' %>
+<%= render 'layouts/banner' %>
+
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <ul>
+        <% if @team_member %>
+        <li><%= @team.name %></li>
+        <% for t in @team_mates %>
+              <% if User.find(t.user_id).name != @user.name %>
+                <li><%= User.find(t.user_id).name %></li>
+        <% end end end %>
+      </ul>
+      
+      <ul>
+        <% for t in @questions %>
+          <% if t.round == $current_round %>
+            <li><%= t.name %>,<%= t.description %>,<%= t.difficulty %>,<%= t.category %></li>
+        <% end end %>
+      </ul>
+    </section>
+  </aside>
+</div>

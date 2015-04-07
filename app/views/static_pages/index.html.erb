@@ -1,0 +1,14 @@
+
+<%= render 'layouts/header' %>
+<div class="center jumbotron">
+  <h1>Welcome to The Triangle Computer Science Competition</h1>
+
+  <h2>
+    Competition begins Q1 2015
+  </h2>
+  
+  <% unless session[:user_id] %>
+    <%= link_to "Sign up!", newUser_path, class: "btn btn-large btn-primary" %>
+    <%= link_to "Log in!", login_path, class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
